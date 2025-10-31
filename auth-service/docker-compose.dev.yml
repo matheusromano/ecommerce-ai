@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: auth-postgres-dev
+    environment:
+      POSTGRES_DB: ecommerce_auth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-dev-data:/var/lib/postgresql/data
+    networks:
+      - auth-network-dev
+
+  redis:
+    image: redis:7-alpine
+    container_name: auth-redis-dev
+    ports:
+      - "6379:6379"
+    networks:
+      - auth-network-dev
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: auth-mailhog-dev
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - auth-network-dev
+
+networks:
+  auth-network-dev:
+    driver: bridge
+
+volumes:
+  postgres-dev-data:

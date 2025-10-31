@@ -51,4 +51,9 @@ public class RefreshToken {
     public boolean isExpired() {
         return LocalDateTime.now().isAfter(expiryDate);
     }
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
 }

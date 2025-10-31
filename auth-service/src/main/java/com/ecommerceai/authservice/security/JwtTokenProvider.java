@@ -1,5 +1,6 @@
 package com.ecommerceai.authservice.security;
 
+import com.ecommerceai.authservice.exception.AuthException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
@@ -69,7 +70,7 @@ public class JwtTokenProvider {
         return UUID.fromString(claims.getSubject());
     }
 
-    public boolean validateToken(String token) {
+    public boolean validateToken(String token) throws AuthException {
         try {
             Jwts.claims().build();
             return true;

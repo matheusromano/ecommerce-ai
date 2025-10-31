@@ -98,7 +98,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <version>4.3.0</version>
-        </dependency>
+</dependency>
 
         <!-- OpenFeign for Inter-Service Communication -->
         <dependency>
@@ -147,7 +147,6 @@
         </dependency>
 
         <!-- ==================== Database Migration ==================== -->
-
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
@@ -155,7 +154,7 @@
 
         <dependency>
             <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
+            <artifactId>flyway-database-postgresql</artifactId>
         </dependency>
 
         <!-- ==================== API Documentation ==================== -->
